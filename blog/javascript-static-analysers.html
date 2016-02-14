@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <title>wavesurfer.js – blog</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" crossorigin="anonymous">
 
@@ -35,7 +37,7 @@
               <a href="/examples">Examples</a>
             </li>
 
-            <li class="active">
+            <li>
               <a href="/faq">FAQ</a>
             </li>
 
@@ -46,25 +48,55 @@
             <li>
               <a href="/projects">Projects</a>
             </li>
+
+            <li class="active">
+              <a href="/blog">Blog</a>
+            </li>
           </ul>
         </div>
 
         <div class="col-sm-9 col-md-10">
           <section>
-            <h1>FAQ</h1>
+<div id="post">
+    <h1 id="list-of-javascript-static-analysers">List of JavaScript Static Analysers</h1>
 
-            <h2>Can the audio start playing before the waveform is drawn?</h2>
+<h2 id="google-closure-compiler">Google Closure Compiler</h2>
 
-            <p>Yes, if you use the <code>backend: 'MediaElement'</code> option. See here: <a href="http://wavesurfer-js.org/example/audio-element/">http://wavesurfer-js.org/example/audio-element/</a>. The audio will start playing as you press play. A thin line will be displayed until the whole audio file is downloaded and decoded to draw the waveform.</p>
+<p>https://developers.google.com/closure/compiler/</p>
 
+<ul>
+  <li>Syntax checking, including things like trailing commas in arrays</li>
+  <li>Type checking (i.g. in math operations)</li>
+  <li>Checks the number of arguments passed in function calls</li>
+  <li>Finds unused code (functions that are never called)</li>
+  <li>Can use optional JSDoc type annotations</li>
+</ul>
 
-            <h2>Can drawing be done as file loads?</h2>
+<h2 id="tern">Tern</h2>
 
-            <p>No. Web Audio needs the whole file to decode it in the browser. You can however load pre-decoded waveform data to draw the waveform immediately. <a href="/example/audio-element/">See here</a> (the "Pre-recoded Peaks" section).</p>
+<p>http://ternjs.net/</p>
 
-            <h2>Can I make the audio play on load on iOS?</h2>
+<ul>
+  <li>Error-tolerant parser</li>
+  <li>Type inference</li>
+  <li>Knows what properties objects have and their types</li>
+  <li>Knows what variables are defined in scope and their types</li>
+  <li>Knows function signatures</li>
+  <li>By extension, allows autocompletion and go-to-definition</li>
+</ul>
 
-            <p>Nope. It's a known issue that iOS won't allow you to play the audio programmatically. It won't play unless the user clicks on the page. It's a power/bandwidth-saving feature of iOS Safari.</p>
+<h2 id="eslint">ESLint</h2>
+
+<p>http://eslint.org/</p>
+
+<ul>
+  <li>Syntax checking, incl. trailing commas</li>
+  <li>Checks for undefined variable assignments</li>
+  <li>Detects variable shadowing</li>
+  <li>Multitude of other best practices and style checks</li>
+</ul>
+
+</div>
           </section>
         </div>
       </div>

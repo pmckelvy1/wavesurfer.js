@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <title>wavesurfer.js – blog</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -35,7 +38,7 @@
               <a href="/examples">Examples</a>
             </li>
 
-            <li class="active">
+            <li>
               <a href="/faq">FAQ</a>
             </li>
 
@@ -46,25 +49,48 @@
             <li>
               <a href="/projects">Projects</a>
             </li>
+
+            <li class="active">
+              <a href="/blog">Blog</a>
+            </li>
           </ul>
         </div>
 
         <div class="col-sm-9 col-md-10">
           <section>
-            <h1>FAQ</h1>
+            <h2>Blog</h2>
 
-            <h2>Can the audio start playing before the waveform is drawn?</h2>
+            <ul class="posts">
+              <li>
+                <div>01 May 2015</div>
+                <i class="fa fa-chevron-right"></i>
+                <a href="/blog/js-in-webstorm-vs-emacs.html">Small Nice Things in WebStorm</a>
+              </li>
 
-            <p>Yes, if you use the <code>backend: 'MediaElement'</code> option. See here: <a href="http://wavesurfer-js.org/example/audio-element/">http://wavesurfer-js.org/example/audio-element/</a>. The audio will start playing as you press play. A thin line will be displayed until the whole audio file is downloaded and decoded to draw the waveform.</p>
+              <li>
+                <div>07 Mar 2015</div>
+                <i class="fa fa-chevron-right"></i>
+                <a href="/blog/javascript-static-analysers.html">List of JavaScript Static Analysers</a>
+              </li>
 
+              <li>
+                <div>14 Apr 2014</div>
+                <i class="fa fa-chevron-right"></i>
+                <a href="/blog/restoring-nodejs-project-after-git-reset.html">Restoring a Node.js Project after a git-reset</a>
+              </li>
 
-            <h2>Can drawing be done as file loads?</h2>
+              <li>
+                <div>06 Mar 2014</div>
+                <i class="fa fa-chevron-right"></i>
+                <a href="/blog/ido-at-point.html">ido-at-point</a>
+              </li>
 
-            <p>No. Web Audio needs the whole file to decode it in the browser. You can however load pre-decoded waveform data to draw the waveform immediately. <a href="/example/audio-element/">See here</a> (the "Pre-recoded Peaks" section).</p>
-
-            <h2>Can I make the audio play on load on iOS?</h2>
-
-            <p>Nope. It's a known issue that iOS won't allow you to play the audio programmatically. It won't play unless the user clicks on the page. It's a power/bandwidth-saving feature of iOS Safari.</p>
+              <li>
+                <div>12 Jun 2013</div>
+                <i class="fa fa-chevron-right"></i>
+                <a href="/blog/emacs-javascript.html">Emacs + JavaScript</a>
+              </li>
+            </ul>
           </section>
         </div>
       </div>
