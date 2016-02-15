@@ -129,7 +129,8 @@ section h1 {
     list-style-type: none;
 }
 
-.container-fluid>.row:first-child>.col-md-2 li.active {
+.container-fluid>.row:first-child>.col-md-2 li.active>a {
+    display: block;
     background: rgba(0, 0, 0, 0.1);
     padding: 3px;
     margin: -3px;
