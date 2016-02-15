@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <title>wavesurfer.js – blog</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" crossorigin="anonymous">
 
@@ -31,26 +33,8 @@
               <a href="/docs">API docs</a>
             </li>
 
-            <li class="active">
+            <li>
               <a href="/examples">Examples</a>
-
-              <ul>
-                <li>
-                  <a href="#zoom">Zoom</a>
-                </li>
-
-                <li>
-                  <a href="#equalizer">Equalizer</a>
-                </li>
-
-                <li>
-                  <a href="#split-channels">Split channels</a>
-                </li>
-
-                <li>
-                  <a href="#angular">Angular</a>
-                </li>
-              </ul>
             </li>
 
             <li>
@@ -67,6 +51,39 @@
 
             <li>
               <a href="/blog">Blog</a>
+
+              <ul>
+                <li class="active">
+                  <a href="/blog/emacs-beginning-of-function.html">
+                    09 May 2015
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/js-in-webstorm-vs-emacs.html">
+                    01 May 2015
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/javascript-static-analysers.html">
+                    07 Mar 2015
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/restoring-nodejs-project-after-git-reset.html">
+                    14 Apr 2014
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/ido-at-point.html">
+                    06 Mar 2014
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/emacs-javascript.html">
+                    12 Jun 2013
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
 
@@ -87,54 +104,47 @@
 
         <div class="col-sm-9 col-md-10">
           <section>
-            <h1>Example applications</h1>
+<div id="post">
+  <h1>Display the beginning of a function in Emacs</h1>
 
-            <h2 id="zoom">Zoom</h2>
+  <p>
+    This is an attempt to replicate <a href="/blog/js-in-webstorm-vs-emacs.html">a feature found in WebStorm:</a>
 
-            <p data-height="243" data-theme-id="0" data-slug-hash="GozaaG" data-default-tab="result" data-user="katspaugh" class='codepen'>See the Pen <a href='http://codepen.io/katspaugh/pen/GozaaG/'>wavesurfer.js zoom</a> by katspaugh (<a href='http://codepen.io/katspaugh'>@katspaugh</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-            <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+    <p>
+      <img src="http://i.imgur.com/X1EQXfu.png" alt="WebStorm screenshot" width="359" />
+    </p>
 
-            <p>
-              The zoom example shows how to use the <code>zoom</code> method and an HTML5 slider to zoom the waveform in and out.
-            </p>
+    <p>
+      When you are in the end of a block, and the beginning of the block is outside the viewport, it shows you the beginning in a nice overlay.
+    </p>
 
-            <hr />
+    <p>
+      In Emacs we can show the beginning of function definition at point in the <a href="http://www.gnu.org/software/emacs/manual/html_node/elisp/Header-Lines.html">header line</a>.
+    </p>
 
-            <h2 id="equalizer">Equalizer</h2>
+    <p>
+      <img src="http://i.imgur.com/3RsQnWI.png" alt="Emacs screenshot" width="297" />
+    </p>
 
-            <p data-height="377" data-theme-id="0" data-slug-hash="ZQwZJo" data-default-tab="result" data-user="katspaugh" class='codepen'>See the Pen <a href='http://codepen.io/katspaugh/pen/ZQwZJo/'>wavesurfer.js equalizer</a> by katspaugh (<a href='http://codepen.io/katspaugh'>@katspaugh</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+    <p>
+      Here's the Emacs Lisp code:
 
-            <p>
-              The equalizer example demonstrates how to connect Web Audio filters to a wavesurfer Web Audio buffer to achieve various audio effects. In this case, you can change the amplitude of certain frequencies.
-            </p>
+<pre><code>(defun show-beginning-of-defun ()
+  "Display the beginning of defun in the header line."
+  (let (start end)
+    (save-excursion
+      (beginning-of-defun)
+      (setq start (line-beginning-position)
+            end (line-end-position)))
+    (if (>= start (window-start))
+        (setq header-line-format nil)
+      (setq header-line-format (buffer-substring-no-properties start end)))))
 
-
-            <hr />
-
-            <h2 id="split-channels">Split channels</h2>
-
-            <p data-height="233" data-theme-id="0" data-slug-hash="ZQPaxB" data-default-tab="result" data-user="katspaugh" class='codepen'>See the Pen <a href='http://codepen.io/katspaugh/pen/ZQPaxB/'>wavesurfer.js split channels</a> by katspaugh (<a href='http://codepen.io/katspaugh'>@katspaugh</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-            <p>
-              This is an example of the <code>splitChannels</code> options. If you set it to <code>true</code>, instead of one waveform, multiple waveforms will be displayed (one per audio channel).
-            </p>
-
-            <hr />
-
-            <h2 id="angular">Angular Material</h2>
-
-            <p align="center"><iframe src="/example/angular-material/" height="580" scrolling="no" frameborder="no" allowtransparency="true" style="width: 450px"></iframe></p>
-
-            <p>
-              This is a ready-to-use playlist player made with AngularJS and Angular Material.
-            </p>
-
-            <p>
-              The <a href="https://github.com/katspaugh/wavesurfer.js/tree/gh-pages/example/angular-material">source code</a> of this example is on GitHub.
-            </p>
-
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'post-command-hook #'show-beginning-of-defun)))</code></pre>
+    </p>
+</div>
           </section>
         </div>
       </div>
