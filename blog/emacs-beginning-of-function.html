@@ -15,6 +15,12 @@
 
     <!-- wavesurfer.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/languages/lisp.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
     <header>
@@ -129,7 +135,7 @@
     <p>
       Here's the Emacs Lisp code:
 
-<pre><code>(defun show-beginning-of-defun ()
+<pre><code class="lisp">(defun show-beginning-of-defun ()
   "Display the beginning of defun in the header line."
   (let (start end)
     (save-excursion

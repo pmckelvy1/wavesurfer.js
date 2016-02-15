@@ -17,6 +17,11 @@
 
     <!-- wavesurfer.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
 
   <body class="overview">
@@ -152,7 +157,7 @@
                 In your JavaScript app, create a wavesurfer.js instance and pass <a href="/docs#option">the options</a>:
 
 <pre><code>var wavesurfer = WaveSurfer.create({
-  container: '#wave',
+  container: '#waveform',
   waveColor: 'violet',
   progressColor: 'purple'
 });</code></pre>
@@ -171,11 +176,7 @@
             <div class="col-md-6">
               <h2>Browser support</h2>
               <p>
-                <b>wavesurfer.js</b> runs on modern <a href="http://caniuse.com/#search=web%20audio">browsers supporting Web Audio</a>, including:
-                  <i class="fa fa-firefox"></i> Firefox,
-                  <i class="fa fa-chrome"></i> Chrome,
-                  <i class="fa fa-safari"></i> Safari (and iOS Safari),
-                  and <i class="fa fa-opera"></i> Opera.
+                <b>wavesurfer.js</b> runs on modern <a href="http://caniuse.com/#search=web%20audio">browsers supporting Web Audio</a>, including Firefox, Chrome, Safari (desktop and mobile) and Opera.
               </p>
             </div>
 
