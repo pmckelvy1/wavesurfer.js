@@ -113,6 +113,10 @@ section h2 {
     margin-bottom: 10px;
 }
 
+section h1 {
+    margin-bottom: 20px;
+}
+
 .overview section {
     padding-top: 0;
 }
@@ -129,4 +133,8 @@ section h2 {
     background: rgba(0, 0, 0, 0.1);
     padding: 3px;
     margin: -3px;
+}
+
+.secondary-menu {
+    margin-top: 50px;
 }
