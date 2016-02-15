@@ -139,3 +139,14 @@ section h1 {
 .secondary-menu {
     margin-top: 50px;
 }
+
+#waveform {
+    position: relative;
+}
+
+#waveform .progress {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}

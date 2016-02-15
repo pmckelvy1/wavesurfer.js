@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>wavesurfer.js – documentation</title>
+    <title>wavesurfer.js – options documentation</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" crossorigin="anonymous">
@@ -29,11 +29,11 @@
               <a href="/">Overview</a>
             </li>
 
-            <li class="active">
+            <li>
               <a href="/docs">API docs</a>
 
               <ul>
-                <li>
+                <li class="active">
                   <a href="/docs/options.html">Options</a>
                 </li>
 
@@ -85,9 +85,9 @@
 
         <div class="col-sm-9 col-md-10">
           <section>
-            <h1>API docs</h1>
+            <h1>WaveSurfer Options</h1>
 
-            <h2 id="options">WaveSurfer Options</h2>
+            <p>This is the list of parameters you can pass to <code>var wavesurfer = WaveSurfer.create({ ... })</code> to create an instance of the player.</p>
 
             <table class="table table-striped">
               <thead>
@@ -199,7 +199,7 @@
                   <td><code>skipLength</code></td>
                   <td>float</td>
                   <td><code>2</code></td>
-                  <td>Number of seconds to skip with the <code>skipForward()</code> and <code>skipBackward()</code> methods.</td>
+                  <td>Number of seconds to skip with the <code>skipForward()</code> and <code>skipBackward()</code> <a href="/docs/methods.html">methods</a>.</td>
                 </tr>
                 <tr>
                   <td><code>waveColor</code></td>
@@ -214,65 +214,6 @@
                   <td>If a scrollbar is present, center the waveform around the progress</td>
                 </tr>
             </tbody></table>
-
-            <h2 id="methods">WaveSurfer Methods</h2>
-
-            <p>All methods are intentionally public, but the most readily available are the following:</p>
-
-            <ul>
-              <li><code>init(options)</code> – Initializes with the options listed above.</li>
-              <li><code>destroy()</code> – Removes events, elements and disconnects Web Audio nodes.</li>
-              <li><code>empty()</code> – Clears the waveform as if a zero-length audio is loaded.</li>
-              <li><code>getCurrentTime()</code> – Returns current progress in seconds.</li>
-              <li><code>getDuration()</code> – Returns the duration of an audio clip in seconds.</li>
-              <li><code>isPlaying()</code> – Returns true if currently playing, false otherwise.</li>
-              <li><code>load(url)</code> – Loads audio from URL via XHR. Returns XHR object.</li>
-              <li><code>loadBlob(url)</code> – Loads audio from a <code>Blob</code> or <code>File</code> object.</li>
-              <li><code>on(eventName, callback)</code> – Subscribes to an event.  See <a href="#wavesurfer-events">WaveSurfer Events</a> section below for a list.</li>
-              <li><code>un(eventName, callback)</code> – Unsubscribes from an event.</li>
-              <li><code>unAll()</code> – Unsubscribes from all events.</li>
-              <li><code>pause()</code> – Stops playback.</li>
-              <li><code>play([start[, end]])</code> – Starts playback from the current position.  Optional <code>start</code> and <code>end</code> measured in seconds can be used to set the range of audio to play.</li>
-              <li><code>playPause()</code> – Plays if paused, pauses if playing.</li>
-              <li><code>seekAndCenter(progress)</code> – Seeks to a progress and centers view <code>[0..1]</code> (0 = beginning, 1 = end).</li>
-              <li><code>seekTo(progress)</code> – Seeks to a progress <code>[0..1]</code> (0=beginning, 1=end).</li>
-              <li><code>setFilter(filters)</code> - For inserting your own WebAudio nodes into the graph.  See <a href="#connecting-filters">Connecting Filters</a> below.</li>
-              <li><code>setPlaybackRate(rate)</code> – Sets the speed of playback (<code>0.5</code> is half speed, <code>1</code> is normal speed, <code>2</code> is double speed and so on).</li>
-              <li><code>setVolume(newVolume)</code> – Sets the playback volume to a new value <code>[0..1]</code> (0 = silent, 1 = maximum).</li>
-              <li><code>skip(offset)</code> – Skip a number of seconds from the current position (use a negative value to go backwards).</li>
-              <li><code>skipBackward()</code> - Rewind <code>skipLength</code> seconds.</li>
-              <li><code>skipForward()</code> - Skip ahead <code>skipLength</code> seconds.</li>
-              <li><code>stop()</code> – Stops and goes to the beginning.</li>
-              <li><code>toggleMute()</code> – Toggles the volume on and off.</li>
-              <li><code>toggleInteraction()</code> – Toggle mouse interaction.</li>
-              <li><code>toggleScroll()</code> – Toggles <code>scrollParent</code>.</li>
-              <li><code>zoom(pxPerSec)</code> – Horiontally zooms the waveform in and out. The
-                parameter is a number of horizontal pixels per second of audio. It
-                also changes the parameter <code>minPxPerSec</code> and enables the
-                <code>scrollParent</code> option.</li>
-            </ul>
-
-            <h3 id="filters">Connecting Filters</h3>
-
-            <p>You can insert your own Web Audio nodes into the graph using the method <code>setFilter()</code>. Example:</p>
-
-<pre><code>var lowpass = wavesurfer.backend.ac.createBiquadFilter();
-wavesurfer.backend.setFilter(lowpass);</code></pre>
-
-            <h2 id="events">WaveSurfer Events</h2>
-
-            <ul>
-              <li><code>audioprocess</code> – Fires continuously as the audio plays. Also fires on seeking.</li>
-              <li><code>error</code> – Occurs on error.  Callback will receive (string) error message.</li>
-              <li><code>finish</code> – When it finishes playing.</li>
-              <li><code>loading</code> – Fires continuously when loading via XHR or drag'n'drop. Callback will receive (integer) loading progress in percents [0..100] and (object) event target.</li>
-              <li><code>pause</code> – When audio is paused.</li>
-              <li><code>play</code> – When play starts.</li>
-              <li><code>ready</code> – When audio is loaded, decoded and the waveform drawn.</li>
-              <li><code>scroll</code> - When the scrollbar is moved.  Callback will receive a <code>ScrollEvent</code> object.</li>
-              <li><code>seek</code> – On seeking.  Callback will receive (float) progress [0..1].</li>
-              <li><code>zoom</code> – On zooming. Callback will receive (integer) minPxPerSec.</li>
-            </ul>
           </section>
         </div>
       </div>

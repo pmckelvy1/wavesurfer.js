@@ -26,7 +26,7 @@
 
         <div class="demo">
           <div id="waveform">
-            <!-- Here be the waveform -->
+            <progress id="progress" class="progress progress-striped" value="0" max="100"></progress>
           </div>
 
           <script>
@@ -35,6 +35,14 @@
               waveColor: '#fff',
               progressColor: 'hsla(200, 100%, 30%, 0.5)',
               cursorColor: '#fff'
+            });
+
+            wavesurfer.on('loading', function (percents) {
+              document.getElementById('progress').value = percents;
+            });
+
+            wavesurfer.on('ready', function (percents) {
+              document.getElementById('progress').style.display = 'none';
             });
 
             wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
@@ -127,7 +135,7 @@
             <div class="col-md-6">
               <h2>Web Audio waveform</h2>
               <p>
-                <b>wavesurfer.js</b> is a customizable audio waveform visualization, built on top of Web Audio API and HTML5 Canvas.
+                <b>wavesurfer.js</b> is a customizable audio waveform visualization, built on top of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML5 Canvas</a>.
               </p>
               <p>
                 With <b>wavesurfer.js</b> you can create anything from an HTML5 audio player to a sophisticated DJ application.
@@ -163,7 +171,11 @@
             <div class="col-md-6">
               <h2>Browser support</h2>
               <p>
-                <b>wavesurfer.js</b> runs on modern browsers supporting Web Audio, including Firefox, Chrome, Safari, Mobile Safari and Opera.
+                <b>wavesurfer.js</b> runs on modern <a href="http://caniuse.com/#search=web%20audio">browsers supporting Web Audio</a>, including:
+                  <i class="fa fa-firefox"></i> Firefox,
+                  <i class="fa fa-chrome"></i> Chrome,
+                  <i class="fa fa-safari"></i> Safari (and iOS Safari),
+                  and <i class="fa fa-opera"></i> Opera.
               </p>
             </div>
 
