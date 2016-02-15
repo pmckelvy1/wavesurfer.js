@@ -1,5 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Knewave);
 
+html {
+    height: 100%;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    padding-bottom: 200px;
+}
+
 header {
     background:
       linear-gradient(
@@ -63,6 +76,10 @@ pre code {
 }
 
 footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.1);
     margin-top: 30px;
