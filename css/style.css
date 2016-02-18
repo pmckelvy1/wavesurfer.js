@@ -161,15 +161,3 @@ section h1 {
     top: 50%;
     transform: translateY(-50%);
 }
-
-.books {
-    margin-top: 50px;
-    text-align: center;
-}
-
-.books p {
-    text-align: left;
-    font-size: 12px;
-    margin-top: 5px;
-    margin-left: 10px;
-}
