@@ -122,6 +122,10 @@ section h2, section h3 {
     margin-bottom: 10px;
 }
 
+.col-md-6 h2:first-child {
+    margin-top: 0;
+}
+
 section h1 {
     margin-bottom: 20px;
 }
@@ -147,8 +151,12 @@ section h1 {
     margin: -3px;
 }
 
+.container-fluid>.row:first-child>.col-md-2 #carbonads {
+    margin-top: 30px;
+}
+
 .secondary-menu {
-    margin-top: 50px;
+    padding-top: 30px;
 }
 
 #waveform {
@@ -160,4 +168,48 @@ section h1 {
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#carbonads {
+    max-width: 400px;
+}
+
+.carbon-wrap {
+    display: block;
+    background: #F0F0F0;
+    padding: 15px 10px 5px 15px;
+}
+
+.carbon-wrap:after {
+    clear: both;
+}
+
+.carbon-wrap:before, .carbon-wrap:after {
+    content: '';
+    display: table;
+}
+
+.carbon-img {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.carbon-text {
+    display: block;
+    font-size: 14px;
+    line-height: 130%;
+    min-width: 120px;
+    color: #06c;
+    margin-bottom: 10px;
+}
+
+.carbon-poweredby {
+    color: #6e6e6e;
+    text-decoration: underline;
+    font-size: 11px;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    margin: 8px 0 0 0;
 }
