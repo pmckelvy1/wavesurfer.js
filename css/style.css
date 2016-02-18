@@ -78,6 +78,7 @@ pre code {
 footer {
     position: absolute;
     left: 0;
+    right: 0;
     bottom: 0;
     z-index: 1;
     overflow: hidden;
@@ -212,4 +213,9 @@ section h1 {
     text-align: center;
     display: block;
     margin: 8px 0 0 0;
+}
+
+.container-fluid>.row:first-child>.col-md-2 .carbon-img {
+    float: none;
+    display: block;
 }
